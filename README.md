@@ -1,2 +1,3 @@
-# ifsul-tads-disciplinas
-Disciplinas do TADS, IFSul
+Atividade:
+- Disciplina PW1
+- Lista UL e Menu
