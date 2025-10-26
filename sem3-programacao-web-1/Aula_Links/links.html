@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Boas Práticas - Exemplo Simples</title>
+    <style>
+        /* CSS separado - boa prática */
+        .destaque {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #1976d2;
+        }
+        .botao {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML semântico e bem documentado -->
+    <header>
+        <h1>Exemplo de Boas Práticas</h1>
+    </header>
+
+    <main>
+        <!-- Seção com separação de responsabilidades -->
+        <section class="destaque">
+            <h2>Separação de Responsabilidades</h2>
+            <p>HTML para estrutura, CSS para estilo, JS para comportamento.</p>
+        </section>
+
+        <!-- Tags semânticas para SEO -->
+        <article>
+            <h3>Otimização Web</h3>
+            <p>Tags semânticas melhoram <strong>SEO</strong> e <em>acessibilidade</em>.</p>
+            
+            <!-- Tags auto-fechadas (sem fechamento) -->
+            <img src="imagem.jpg" alt="Descrição da imagem">
+            <br>
+            <hr>
+        </article>
+
+        <!-- Botão com JavaScript separado -->
+        <button class="botao" onclick="mostrarMensagem()">Clique Aqui</button>
+    </main>
+
+    <!-- Comentários para documentação -->
+    <!-- TODO: Adicionar mais exemplos -->
+
+    <script>
+        // JavaScript separado - boa prática
+        function mostrarMensagem() {
+            alert("Boas práticas aplicadas com sucesso!");
+        }
+    </script>
+</body>
+</html>
