@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <persistence-unit name="PU_aulajpa" transaction-type="RESOURCE_LOCAL">
+        <!-- Provedor JPA (EclipseLink) -->
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <!-- Classes anotadas (entidades) -->
+        <class>ifsul.aulajpa.dicionario.entity.Idioma</class>
+        <class>ifsul.aulajpa.dicionario.entity.Palavra</class>
+        <class>ifsul.aulajpa.dicionario.entity.Categoria</class>
+
+        <!-- Propriedades de Conexão e Comportamento -->
+        <properties>
+            <!-- Conexão JDBC -->
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/dicionario"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="123456"/>
+
+            <!-- Geração auto de schema (DROP e CREATE) -->
+            <property name="javax.persistence.schema-generation.database.action"
+                      value="drop-and-create"/>
+
+            <!-- Logs SQL EclipseLink -->
+            <property name="eclipselink.logging.level" value="WARNING"/>
+            <property name="eclipselink.logging.level.sql" value="WARNING"/>
+            <property name="eclipselink.logging.parameters" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
