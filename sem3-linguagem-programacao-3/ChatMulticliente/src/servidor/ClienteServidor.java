@@ -57,7 +57,9 @@ public class ClienteServidor implements Runnable {
         } catch (IOException e) {
             System.err.println("Erro ao fechar socket: " + e.getMessage());
         }
-        clientes.remove(this);
+        synchronized (clientes) {
+            clientes.remove(this);
+        }
         if (nome != null) {
             broadcast("✗ [" + nome + "] saiu do chat");
         }
@@ -79,7 +81,7 @@ public class ClienteServidor implements Runnable {
         }
     }
 
-    private synchronized void broadcast(String mensagem) {
+    private void broadcast(String mensagem) {
         System.out.println(mensagem);
         synchronized (clientes) {
             for (ClienteServidor c : clientes) {

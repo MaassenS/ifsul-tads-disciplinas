@@ -22,7 +22,9 @@ public class ServidorChat {
                     System.out.println("✓ Nova conexão recebida: " + ipCliente);
 
                     ClienteServidor cliente = new ClienteServidor(socketCliente, clientes);
-                    clientes.add(cliente);
+                    synchronized (clientes) {
+                        clientes.add(cliente);
+                    }
 
                     Thread thread = new Thread(cliente);
                     thread.start();

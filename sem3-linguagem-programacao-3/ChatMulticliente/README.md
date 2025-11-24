@@ -129,9 +129,9 @@ Oi João!
 
 ### Sincronização
 
-O método `broadcast()` usa sincronização dupla:
+O método `broadcast()` usa sincronização no objeto compartilhado:
 ```java
-private synchronized void broadcast(String mensagem) {
+private void broadcast(String mensagem) {
     System.out.println(mensagem);
     synchronized (clientes) {
         for (ClienteServidor c : clientes) {
@@ -144,9 +144,9 @@ private synchronized void broadcast(String mensagem) {
 ```
 
 Isso garante que:
-1. Apenas uma thread por vez pode fazer broadcast
-2. A lista de clientes não é modificada durante a iteração
-3. Evita `ConcurrentModificationException`
+1. A lista de clientes não é modificada durante a iteração
+2. Evita `ConcurrentModificationException`
+3. Não causa deadlocks (sincroniza apenas no objeto necessário)
 
 ## Configuração de IDEs
 
